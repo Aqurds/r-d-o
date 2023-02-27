@@ -31,9 +31,6 @@ const App = () => {
                             <Sidebar />
                         </div>
                     )}
-                    {/* <div className={
-                        `dark:bg-main-bg bg-main-bg min-h-screen w-full ${ activeMenu ? 'd:ml-2' : 'flex-2' }`
-                    }> */}
                     <div className={
                     activeMenu
                         ? 'dark:bg-main-dark-bg  bg-main-bg min-h-screen md:ml-72 w-full  '
@@ -42,7 +39,6 @@ const App = () => {
                         <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
                             <Navbar />
                         </div>
-                    </div>
 
                     <div>
                         <Routes>
@@ -75,6 +71,8 @@ const App = () => {
 
                         </Routes>
                     </div>
+                    </div>
+
                 </div>
             </BrowserRouter>
         </div>
