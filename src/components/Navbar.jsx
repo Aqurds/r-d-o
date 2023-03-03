@@ -20,7 +20,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 );
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize, currentColor } = useStateContext();
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -43,25 +43,25 @@ const Navbar = () => {
 
   return (
     <div className='flex justify-between p-2 md:mx-6 relative'>
-      <NavButton title="Menu" customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} color="blue" icon={<AiOutlineMenu />} />
+      <NavButton title="Menu" customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)} color={currentColor} icon={<AiOutlineMenu />} />
 
       <div className='flex'>
         <NavButton 
           title="Cart" 
           customFunc={() => handleClick('cart')} 
-          color="blue" 
+          color={currentColor} 
           icon={<FiShoppingCart />} 
         />
         <NavButton 
           title="Chat" 
           customFunc={() => handleClick('chat')} 
-          color="#03C9D7" 
+          color={currentColor}
           icon={<BsChatLeft />} 
         />
         <NavButton 
           title="Notifications" 
           customFunc={() => handleClick('notification')} 
-          color="blue" 
+          color={currentColor} 
           icon={<RiNotification3Line />} 
         />
         <TooltipComponent
@@ -71,7 +71,7 @@ const Navbar = () => {
           <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
             onClick={() => handleClick('userProfile')}
           >
-            <img src={avatar} className="rounded-full w-8 h-8" />
+            <img src={avatar} className="rounded-full w-8 h-8" alt=''/>
             <p>
               <span className='text-gray-400 text-14'>Hi,</span> {' '}
               <span className='text-gray-400 font-bold ml-1 text-14'>Omar</span>
